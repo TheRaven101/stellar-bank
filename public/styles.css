@@ -1,748 +1,308 @@
-* {
-  box-sizing: border-box;
-}
-
-:root {
-  --bg: #091726;
-  --bg-2: #0d1d2d;
-  --panel: rgba(14, 34, 51, 0.8);
-  --panel-strong: rgba(18, 42, 62, 1);
-  --line: rgba(255, 255, 255, 0.08);
-  --text: #ebf4ff;
-  --muted: #a5c0db;
-  --primary: #7ee7d1;
-  --primary-strong: #57d9c0;
-  --secondary: #8ab4ff;
-  --gold: #f5d48c;
-  --danger: #ff7d7d;
-  --success: #78e09a;
-  --shadow: 0 30px 80px rgba(2, 10, 15, 0.45);
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(126, 231, 209, 0.18), transparent 30%),
-    linear-gradient(135deg, var(--bg), var(--bg-2));
-  color: var(--text);
-}
-
-button,
-input,
-select {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-.hidden {
-  display: none !important;
-}
-
-.page-shell {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 24px 32px 48px;
-}
-
-.topbar,
-.site-footer,
-.dashboard-header,
-.panel-header,
-.card-top,
-.card-meta,
-.mini-header,
-.modal-header,
-.auth-tabs,
-.summary-grid,
-.content-grid,
-.bottom-grid,
-.cta-row,
-.stats-row,
-.security-strip,
-.insight-boxes,
-.header-balance,
-.sidebar-nav,
-.brand-wrap {
-  display: flex;
-  align-items: center;
-}
-
-.topbar,
-.site-footer {
-  justify-content: space-between;
-}
-
-.topbar {
-  padding: 12px 0 24px;
-}
-
-.brand-wrap {
-  gap: 12px;
-}
-
-.brand-mark {
-  width: 42px;
-  height: 42px;
-  border-radius: 13px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: var(--bg);
-  font-weight: 800;
-  font-size: 1.25rem;
-  box-shadow: var(--shadow);
-}
-
-.brand-name {
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.brand-tag {
-  font-size: 0.72rem;
-  color: var(--muted);
-}
-
-.nav-links {
-  display: flex;
-  gap: 28px;
-}
-
-.nav-links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.92rem;
-}
-
-.primary-button,
-.secondary-button {
-  border: none;
-  border-radius: 12px;
-  padding: 0.82rem 1.2rem;
-  font-weight: 600;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.primary-button {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: var(--bg);
-  box-shadow: 0 20px 36px rgba(126, 231, 209, 0.25);
-}
-
-.secondary-button {
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text);
-  border: 1px solid var(--line);
-}
-
-.primary-button:hover,
-.secondary-button:hover,
-.tab-button:hover,
-.nav-item:hover {
-  transform: translateY(-1px);
-}
-
-.hero {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  align-items: center;
-  gap: 48px;
-  padding: 56px 0 80px;
-}
-
-.eyebrow {
-  display: inline-block;
-  margin-bottom: 16px;
-  color: var(--primary);
-  font-size: 0.76rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.eyebrow.light {
-  color: var(--gold);
-}
-
-.hero-copy h1 {
-  margin: 0;
-  font-size: clamp(3rem, 6vw, 5rem);
-  line-height: 0.96;
-  letter-spacing: -0.06em;
-}
-
-.hero-copy p {
-  max-width: 620px;
-  font-size: 1.05rem;
-  color: var(--muted);
-  line-height: 1.7;
-  margin: 20px 0 30px;
-}
-
-.cta-row {
-  gap: 16px;
-}
-
-.stats-row {
-  list-style: none;
-  padding: 0;
-  margin: 34px 0 0;
-  gap: 28px;
-  flex-wrap: wrap;
-}
-
-.stats-row li {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.stats-row strong {
-  font-size: 1.3rem;
-}
-
-.stats-row span {
-  color: var(--muted);
-  font-size: 0.78rem;
-}
-
-.hero-card-wrap {
-  position: relative;
-  display: grid;
-  gap: 18px;
-  place-items: center;
-}
-
-.glass-card,
-.feature-card,
-.summary-card,
-.panel,
-.modal-card {
-  background: rgba(13, 25, 38, 0.86);
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  box-shadow: var(--shadow);
-}
-
-.bank-card {
-  width: min(100%, 440px);
-  min-height: 240px;
-  padding: 24px 24px 18px;
-  background: linear-gradient(135deg, rgba(122, 219, 198, 0.15), rgba(90, 111, 255, 0.22));
-}
-
-.card-top,
-.card-meta,
-.mini-header,
-.panel-header,
-.modal-header,
-.dashboard-header {
-  justify-content: space-between;
-}
-
-.card-top {
-  font-weight: 600;
-}
-
-.chip {
-  width: 54px;
-  height: 40px;
-  margin-top: 32px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #f2d98a, #d4af53);
-}
-
-.card-number {
-  margin-top: 48px;
-  letter-spacing: 0.18em;
-  font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.95);
-}
-
-.card-meta {
-  margin-top: 18px;
-  font-size: 0.76rem;
-  color: var(--muted);
-}
-
-.card-meta strong {
-  display: block;
-  margin-top: 6px;
-  font-size: 0.9rem;
-  color: var(--text);
-}
-
-.mini-panel {
-  width: min(100%, 240px);
-  justify-self: end;
-  padding: 18px 20px;
-}
-
-.mini-panel strong {
-  display: block;
-  margin-top: 10px;
-  font-size: 1.5rem;
-}
-
-.mini-panel p {
-  margin: 8px 0 0;
-  color: var(--muted);
-  font-size: 0.8rem;
-  line-height: 1.6;
-}
-
-.trend {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--success);
-}
-
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  margin: 20px 0 0;
-}
-
-.feature-card {
-  padding: 28px 22px;
-}
-
-.icon {
-  width: 52px;
-  height: 52px;
-  display: grid;
-  place-items: center;
-  background: rgba(126, 231, 209, 0.12);
-  border: 1px solid rgba(126, 231, 209, 0.24);
-  border-radius: 14px;
-  font-size: 1.7rem;
-  margin-bottom: 16px;
-}
-
-.feature-card h3 {
-  margin: 0 0 12px;
-  font-size: 1.35rem;
-}
-
-.feature-card p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.security-strip {
-  margin-top: 90px;
-  padding: 28px 28px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--line);
-  border-radius: 26px;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.security-strip h2 {
-  margin: 0;
-  font-size: clamp(2rem, 4vw, 2.4rem);
-}
-
-.security-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.security-pills span {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--text);
-  padding: 0.8rem 1rem;
-  font-size: 0.8rem;
-}
-
-.insights-panel {
-  margin-top: 32px;
-  padding: 28px;
-}
-
-.insight-boxes {
-  margin-top: 18px;
-  gap: 16px;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.insight-boxes div {
-  min-width: 170px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 18px;
-}
-
-.insight-boxes strong {
-  display: block;
-  font-size: 1.6rem;
-}
-
-.insight-boxes span {
-  font-size: 0.82rem;
-  color: var(--muted);
-}
-
-.site-footer {
-  margin-top: 32px;
-  border-top: 1px solid var(--line);
-  padding-top: 24px;
-}
-
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(4, 10, 16, 0.7);
-  display: grid;
-  place-items: center;
-  z-index: 20;
-}
-
-.modal-card {
-  width: min(92vw, 480px);
-  padding: 26px 22px 18px;
-}
-
-.close-button {
-  background: transparent;
-  border: none;
-  color: var(--text);
-  font-size: 2rem;
-  line-height: 1;
-}
-
-.auth-tabs {
-  gap: 12px;
-  margin: 20px 0;
-}
-
-.tab-button {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 0.8rem 1rem;
-}
-
-.tab-button.active {
-  background: rgba(126, 231, 209, 0.12);
-  border-color: rgba(126, 231, 209, 0.34);
-}
-
-.auth-form {
-  display: grid;
-  gap: 16px;
-}
-
-.field {
-  display: grid;
-  gap: 8px;
-}
-
-.field label {
-  font-size: 0.82rem;
-  color: var(--muted);
-}
-
-.field input,
-.field select {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  color: var(--text);
-  padding: 0.9rem 0.9rem;
-}
-
-.full-width {
-  width: 100%;
-}
-
-.auth-message {
-  min-height: 22px;
-  margin-top: 16px;
-  font-size: 0.88rem;
-  color: var(--muted);
-}
-
-.auth-message.error {
-  color: var(--danger);
-}
-
-.auth-message.success {
-  color: var(--success);
-}
-
-.dashboard-shell {
-  margin-top: 28px;
-  display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
-  min-height: 820px;
-  background: rgba(8, 17, 25, 0.8);
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  overflow: hidden;
-}
-
-.sidebar {
-  padding: 18px 16px 20px;
-  border-right: 1px solid var(--line);
-  background: rgba(13, 21, 32, 0.9);
-}
-
-.sidebar-brand {
-  margin-bottom: 16px;
-}
-
-.sidebar-nav {
-  display: grid;
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.nav-item {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--line);
-  color: var(--text);
-  text-align: left;
-  padding: 0.8rem 0.9rem;
-  border-radius: 12px;
-}
-
-.nav-item.active {
-  background: rgba(126, 231, 209, 0.12);
-  border-color: rgba(126, 231, 209, 0.3);
-}
-
-.btn-block {
-  width: 100%;
-  margin-top: 16px;
-}
-
-.dashboard-main {
-  padding: 24px;
-}
-
-.dashboard-header {
-  margin-bottom: 22px;
-}
-
-.dashboard-header h2 {
-  margin: 0;
-  font-size: clamp(2rem, 2vw, 2.7rem);
-}
-
-.header-balance {
-  display: grid;
-  gap: 6px;
-  justify-items: end;
-}
-
-.header-balance span {
-  color: var(--muted);
-  font-size: 0.82rem;
-}
-
-.header-balance strong {
-  font-size: clamp(1.6rem, 2vw, 2.4rem);
-}
-
-.summary-grid {
-  gap: 18px;
-  margin-bottom: 22px;
-}
-
-.summary-card {
-  flex: 1;
-  padding: 20px 18px;
-}
-
-.summary-card.highlight {
-  background: linear-gradient(135deg, rgba(126, 231, 209, 0.18), rgba(86, 143, 255, 0.22));
-}
-
-.summary-card span {
-  display: block;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-
-.summary-card strong {
-  font-size: 1.6rem;
-}
-
-.content-grid,
-.bottom-grid {
-  gap: 24px;
-  align-items: start;
-}
-
-.content-grid {
-  margin-bottom: 24px;
-}
-
-.accounts-panel,
-.transfer-panel,
-.table-panel,
-.cards-panel {
-  flex: 1;
-}
-
-.panel {
-  padding: 22px;
-}
-
-.stack-list,
-.card-stack,
-.transaction-list {
-  display: grid;
-  gap: 12px;
-  margin-top: 18px;
-}
-
-.account-item,
-.card-item,
-.transaction-item {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 14px 14px;
-}
-
-.account-item {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.account-detail h4,
-.card-item h4 {
-  margin: 0 0 4px;
-  font-size: 1rem;
-}
-
-.account-number,
-.card-meta-text,
-.transaction-note {
-  color: var(--muted);
-  font-size: 0.78rem;
-}
-
-.account-balance {
-  display: grid;
-  align-items: center;
-  justify-items: end;
-}
-
-.account-balance strong {
-  font-size: 1.1rem;
-}
-
-.transfer-form {
-  display: grid;
-  gap: 16px;
-  margin-top: 10px;
-}
-
-.transaction-item {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: center;
-}
-
-.transaction-main {
-  display: grid;
-  gap: 5px;
-}
-
-.transaction-main strong {
-  font-size: 0.98rem;
-}
-
-.transaction-money {
-  font-weight: 700;
-}
-
-.transaction-money.credit {
-  color: var(--success);
-}
-
-.transaction-money.debit {
-  color: var(--danger);
-}
-
-.card-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card-chip {
-  width: 38px;
-  height: 26px;
-  background: linear-gradient(135deg, #f3d490, #d3b05e);
-  border-radius: 8px;
-}
-
-@media (max-width: 960px) {
-  .nav-links {
-    display: none;
-  }
-
-  .hero,
-  .feature-grid,
-  .dashboard-shell,
-  .content-grid,
-  .bottom-grid {
-    grid-template-columns: 1fr;
-    display: grid;
-  }
-
-  .summary-grid {
-    flex-direction: column;
-  }
-
-  .security-strip,
-  .site-footer,
-  .dashboard-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 640px) {
-  .page-shell {
-    padding: 16px 18px 44px;
-  }
-
-  .cta-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .bank-card {
-    min-height: 200px;
-  }
-
-  .card-number {
-    letter-spacing: 0.12em;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stellar Bank | Premium Banking</title>
+    <meta
+      name="description"
+      content="Stellar Bank offers premium digital banking, secure accounts, savings goals, and instant transfers."
+    />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <img src="/logo.svg" alt="Stellar Bank logo" class="brand-logo" />
+          <div class="brand-copy">
+            <div class="brand-name">Stellar Bank</div>
+            <div class="brand-tag">Private Banking</div>
+          </div>
+        </div>
+
+        <nav class="nav-links">
+          <a href="#solutions">Solutions</a>
+          <a href="#security">Security</a>
+          <a href="#insights">Insights</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <button id="openAuth" class="primary-button">Open Account</button>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow">Built for modern wealth</span>
+            <h1>Banking designed for growth.</h1>
+            <p>
+              Manage cash flow, protect your future, and move money with confidence using a
+              premium digital banking experience from Stellar Bank.
+            </p>
+
+            <div class="cta-row">
+              <button id="heroSignIn" class="primary-button">Sign In</button>
+              <button id="heroDemo" class="secondary-button">View Demo</button>
+            </div>
+
+            <ul class="stats-row">
+              <li><strong>$2.4B+</strong><span>assets protected</span></li>
+              <li><strong>24/7</strong><span>banking support</span></li>
+              <li><strong>99.99%</strong><span>platform uptime</span></li>
+            </ul>
+          </div>
+
+          <div class="hero-card-wrap">
+            <div class="bank-card glass-card">
+              <div class="card-top">
+                <span>Stellar Bank</span>
+                <span>Platinum</span>
+              </div>
+
+              <div class="chip"></div>
+
+              <div class="card-number">•••• •••• •••• 4821</div>
+
+              <div class="card-meta">
+                <div>
+                  <small>Cardholder</small>
+                  <strong>Ava Thompson</strong>
+                </div>
+                <div>
+                  <small>Expires</small>
+                  <strong>10/29</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="mini-panel glass-card">
+              <div class="mini-header">
+                <span>Portfolio</span>
+                <span class="trend up">+12.4%</span>
+              </div>
+              <strong>$178,240.99</strong>
+              <p>Net worth growth this quarter</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="solutions" class="feature-grid">
+          <div class="feature-card">
+            <div class="icon">🏦</div>
+            <h3>Smart checking</h3>
+            <p>Track spending, monitor cash flow, and automate savings in one place.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon">💳</div>
+            <h3>Secure cards</h3>
+            <p>Monitor card limits, freeze activity instantly, and manage account access.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon">📈</div>
+            <h3>Growth insights</h3>
+            <p>Gain actionable reports on spending, transfers, and long-term goals.</p>
+          </div>
+        </section>
+
+        <section id="security" class="security-strip">
+          <div>
+            <span class="eyebrow light">Bank-grade protection</span>
+            <h2>Security at every layer.</h2>
+          </div>
+          <div class="security-pills">
+            <span>256-bit encryption</span>
+            <span>Multi-factor authentication</span>
+            <span>Fraud monitoring</span>
+          </div>
+        </section>
+
+        <section id="insights" class="insights-panel glass-card">
+          <div class="insights-copy">
+            <span class="eyebrow">Wealth insights</span>
+            <h2>Financial clarity without the friction.</h2>
+          </div>
+          <div class="insight-boxes">
+            <div>
+              <strong>48 hrs</strong>
+              <span>average transfer settlement</span>
+            </div>
+            <div>
+              <strong>4.9/5</strong>
+              <span>average customer rating</span>
+            </div>
+            <div>
+              <strong>200+</strong>
+              <span>growth tools in app</span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer id="contact" class="site-footer">
+        <div class="footer-brand">
+          <img src="/logo.svg" alt="Stellar Bank logo" class="footer-logo" />
+          <div>
+            <div class="brand-name">Stellar Bank</div>
+            <div class="brand-tag">Domain-ready: stellarbank.com • stellarbank.io • stellarbank.bank</div>
+          </div>
+        </div>
+        <button class="secondary-button" id="footerLogin">Customer Login</button>
+      </footer>
+    </div>
+
+    <div id="authModal" class="modal hidden">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div>
+            <span class="eyebrow">Secure access</span>
+            <h2 id="authTitle">Welcome back</h2>
+          </div>
+          <button class="close-button" id="closeModal">×</button>
+        </div>
+
+        <div class="auth-tabs">
+          <button class="tab-button active" data-mode="login">Login</button>
+          <button class="tab-button" data-mode="register">Register</button>
+        </div>
+
+        <form id="authForm" class="auth-form">
+          <div id="registerNameGroup" class="field hidden">
+            <label for="registerName">Full name</label>
+            <input id="registerName" type="text" placeholder="Your full name" />
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="••••••••" required />
+          </div>
+
+          <button class="primary-button full-width" type="submit" id="submitAuth">Sign In</button>
+        </form>
+
+        <div id="authMessage" class="auth-message"></div>
+      </div>
+    </div>
+
+    <div id="dashboardShell" class="dashboard-shell hidden">
+      <aside class="sidebar">
+        <div class="brand-wrap sidebar-brand">
+          <img src="/logo.svg" alt="Stellar Bank logo" class="brand-logo small-logo" />
+          <div class="brand-copy">
+            <div class="brand-name">Stellar Bank</div>
+            <div class="brand-tag">Client portal</div>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <button class="nav-item active">Overview</button>
+          <button class="nav-item">Accounts</button>
+          <button class="nav-item">Transfers</button>
+          <button class="nav-item">Cards</button>
+          <button class="nav-item">Reports</button>
+        </nav>
+
+        <button id="logoutBtn" class="secondary-button btn-block">Log out</button>
+      </aside>
+
+      <main class="dashboard-main">
+        <header class="dashboard-header">
+          <div>
+            <span class="eyebrow">Welcome back</span>
+            <h2 id="greetingName">Ava Thompson</h2>
+          </div>
+          <div class="header-balance">
+            <span>Total Balance</span>
+            <strong id="totalBalance">$0.00</strong>
+          </div>
+        </header>
+
+        <section class="summary-grid">
+          <div class="summary-card highlight">
+            <span>Available cash</span>
+            <strong id="availableCash">$0.00</strong>
+          </div>
+          <div class="summary-card">
+            <span>Accounts</span>
+            <strong id="accountCount">0</strong>
+          </div>
+          <div class="summary-card">
+            <span>Cards</span>
+            <strong id="cardCount">0</strong>
+          </div>
+        </section>
+
+        <section class="content-grid">
+          <div class="panel accounts-panel">
+            <div class="panel-header">
+              <h3>Accounts</h3>
+            </div>
+            <div id="accountsList" class="stack-list"></div>
+          </div>
+
+          <div class="panel transfer-panel">
+            <div class="panel-header">
+              <h3>Quick transfer</h3>
+            </div>
+            <form id="transferForm" class="transfer-form">
+              <div class="field">
+                <label for="fromAccount">From account</label>
+                <select id="fromAccount"></select>
+              </div>
+
+              <div class="field">
+                <label for="toAccount">To account</label>
+                <select id="toAccount"></select>
+              </div>
+
+              <div class="field">
+                <label for="transferAmount">Amount</label>
+                <input id="transferAmount" type="number" min="1" step="0.01" placeholder="0.00" required />
+              </div>
+
+              <div class="field">
+                <label for="transferNote">Note</label>
+                <input id="transferNote" type="text" placeholder="Transfer reason" />
+              </div>
+
+              <button class="primary-button full-width" type="submit">Transfer funds</button>
+            </form>
+            <div id="transferMessage" class="auth-message"></div>
+          </div>
+        </section>
+
+        <section class="bottom-grid">
+          <div class="panel table-panel">
+            <div class="panel-header">
+              <h3>Recent activity</h3>
+            </div>
+            <div id="transactionList" class="transaction-list"></div>
+          </div>
+
+          <div class="panel cards-panel">
+            <div class="panel-header">
+              <h3>Cards</h3>
+            </div>
+            <div id="cardsList" class="card-stack"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
