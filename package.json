@@ -1,0 +1,24 @@
+{
+  "name": "stellar-bank",
+  "version": "1.0.0",
+  "description": "Stellar Bank – a premium full-stack banking website with secure account dashboard and transfer flows.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "banking",
+    "finance",
+    "dashboard",
+    "fullstack"
+  ],
+  "author": "TheRaven101",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "uuid": "^10.0.0"
+  }
+}
